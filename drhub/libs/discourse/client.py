@@ -105,8 +105,8 @@ class DiscourseClient(object):
             username = self.api_username
         return self._get('/topics/private-messages-unread/{0}.json'.format(username), **kwargs)
 
-    def hot_topics(self, **kwargs):
-        return self._get('/hot.json', **kwargs)
+    def top_topics(self, **kwargs):
+        return self._get('/top.json', **kwargs)
 
     def latest_topics(self, **kwargs):
         return self._get('/latest.json', **kwargs)
