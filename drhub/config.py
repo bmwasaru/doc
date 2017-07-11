@@ -4,6 +4,8 @@ from flask import Flask
 from flask_alembic import Alembic
 from flask_sqlalchemy import SQLAlchemy
 
+from drhub.api.discourse import discourse
+
 ROOT = os.path.join(os.path.dirname(__file__), os.pardir)
 
 alembic = Alembic()
@@ -24,6 +26,8 @@ def create_app(**config):
     app.config['SQLALCHEMY_POOL_SIZE'] = 60
     app.config['SQLALCHEMY_MAX_OVERFLOW'] = 20
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+    app.register_blueprint(discourse)
 
     configure_db(app)
 
